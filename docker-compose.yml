@@ -1,0 +1,18 @@
+version: "3.3"
+
+services:
+  web:
+    restart: always
+    build: .
+    volumes:
+      - ./project:/application
+      - type: bind
+        source: /etc/justai/project
+        target: /etc/justai/project
+      - type: bind
+        source: /var/log/justai/project
+        target: /application/logs
+
+    command: gunicorn --bind 0.0.0.0:5000 app:app
+    ports:
+      - 5000:5000
