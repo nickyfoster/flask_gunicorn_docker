@@ -14,4 +14,5 @@ def index():
     version = f"{sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}"
     message = f"Flask Gunicorn Docker Python {version}"
     app.logger.info(request)
+    print(request)
     return message
