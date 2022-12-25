@@ -1,11 +1,6 @@
 #!/bin/bash
 
-# shellcheck disable=SC2046
-script_folder=$(dirname `readlink -f "$0"`)
-name=$(basename $script_folder)
-
-/usr/local/bin/docker-compose -f docker-compose.yml -p $name kill
-/usr/local/bin/docker-compose -f docker-compose.yml -p $name rm -f
-/usr/local/bin/docker-compose -f docker-compose.yml -p $name build
-/usr/local/bin/docker-compose -f docker-compose.yml -p $name pull
-/usr/local/bin/docker-compose -f docker-compose.yml -p $name up $1
+/usr/local/bin/docker-compose -f docker-compose.yml kill
+/usr/local/bin/docker-compose -f docker-compose.yml rm -f
+/usr/local/bin/docker-compose -f docker-compose.yml pull
+/usr/local/bin/docker-compose -f docker-compose.yml up -d

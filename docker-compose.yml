@@ -7,6 +7,6 @@ services:
     volumes:
       - ./project:/application
 
-    command: gunicorn --bind 0.0.0.0:5000 app:app
+    command: gunicorn --bind 127.0.0.1:5005 app:app
     ports:
-      - "5000:5000"
+      - "5005:5005"

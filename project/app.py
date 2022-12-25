@@ -6,9 +6,7 @@ from flask import Flask, request
 # Create a Flask application instance
 app = Flask(__name__)
 
-logging.basicConfig(filename='logs/app.log',
-                    level=logging.DEBUG,
-                    format=f'%(asctime)s %(levelname)s [%(module)s:%(lineno)d] %(message).2000s')
+logging.basicConfig(format=f'%(asctime)s %(levelname)s [%(module)s:%(lineno)d] %(message).2000s')
 
 
 @app.route("/")
@@ -17,4 +15,4 @@ def index():
     message = f"Flask Gunicorn Docker Python {version}"
     app.logger.info(request)
 
-    return message
+    return message, 200
